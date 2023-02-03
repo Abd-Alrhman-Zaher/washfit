@@ -1,0 +1,74 @@
+<form #fQuestion="ngForm">
+    <div class="container">
+        <h2>Add new Question</h2>
+        <br>
+        <div class="form-group">
+            <input type="hidden" ngModel name="txtId">
+            <label class="control-label" for="inputError1">Domain Name</label>
+            <select type="text" class="form-control" id="inputSuccess1" ngModel name="ddl">
+            <option *ngFor="let i of liDomain" [value]="i.id">
+               {{i.domain_Name_EN}}
+            </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Question Code</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="question_code">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Category Title EN</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="category_title_EN">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Indicator EN</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="Indicator_EN">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">ExplanatoryNotes EN</label>
+            <textarea type="text" class="form-control" id="inputError1" ngModel name="explanatoryNotes_EN">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Green EN</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="green_EN">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Yellow EN</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="yellow_EN">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Red EN</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="red_EN">
+        </div>
+        <div class="form-group">
+
+            <label class="control-label" for="inputError1">Category Title AR</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="category_title_AR">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Indicator AR</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="Indicator_AR">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">ExplanatoryNotes AR</label>
+            <textarea type="text" class="form-control" id="inputError1" ngModel name="ExplanatoryNotes_AR">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Green AR</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="green_AR">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Yellow AR</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="yellow_AR">
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="inputError1">Red AR</label>
+            <input type="text" class="form-control" id="inputError1" ngModel name="red_AR">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" (click)="close()">Close</button>
+            <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+        </div>
+    </div>
+</form>

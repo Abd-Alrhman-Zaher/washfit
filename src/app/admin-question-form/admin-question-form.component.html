@@ -1,0 +1,128 @@
+<form #f="ngForm">
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        [ngClass]="{'show':popup==true}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="closePopup()"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">add new Question</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label" for="inputError1">Domain Name EN</label>
+                        <input type="email" class="form-control" id="inputError1" ngModel name="domain_Name_EN">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="inputError1">Domain Name AR</label>
+                        <input type="email" class="form-control" id="inputError1" ngModel name="domain_Name_AR">
+                    </div>
+                </div>
+
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closePopup()">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="onSave()">Save changes</button>
+                  </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="form_div">
+            <div class="title_form">
+                <div class="title">
+                    <p>WASH-FIT-Assessment Master</p>
+                </div>
+            </div>
+            <div class="body_div">
+                <h3>Sanitation.</h3>
+                <input type="button" class="btn btn-primary" value="Add new Domains" (click)="showPopup()"
+                    data-toggle="modal" data-target="#myModal">
+                    &nbsp;
+                <button type="button" class="btn" (click)="AddQuestion()">Add New Question</button>
+            </div>
+            <div class="body_div" *ngFor="let i of liquestion">
+                <div *ngIf="x == 'AR'">
+                    <div dir="rtl" lang="ar">
+                        <div class="q_number">
+                            <p>{{i.id}}</p>
+                        </div>
+                        <h4>{{i.indicator_AR}}</h4>
+                        <br>
+                        <p>{{i.question_code}}</p>
+                        <p>{{i.category_title_AR}}</p>
+                        <div *ngFor="let y of licategories">
+                            <div *ngIf="y.id_Question == i.question_code">
+                                <ul>
+                                    <li>{{y.category_AR}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+                        <p>{{i.explanatoryNotes_AR}}</p>
+                        <br>
+                        <p>{{i.green_AR}}</p>
+                        <p>{{i.yellow_AR}}</p>
+                        <p>{{i.red_AR}}</p>
+                    </div>
+                </div>
+
+                <div *ngIf="x == 'EN'">
+                    <div class="q_number">
+                        <p>{{i.id}}</p>
+                    </div>
+                    <h4>{{i.indicator_EN}}</h4>
+
+                    <br>
+                    <p>{{i.question_code}}</p>
+                    <p>{{i.category_title_EN}}</p>
+                    <div>
+                        <div>
+                            <ul>
+                                <li>{{i.category_title_EN}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                    <p>{{i.explanatoryNotes_EN}}</p>
+                    <br>
+                    <p>{{i.green_EN}}</p>
+                    <p>{{i.yellow_EN}}</p>
+                    <p>{{i.red_EN}}</p>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-danger btn-sm" (click)="onDelete(i.id)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button> &nbsp;
+                <button type="button" class="btn btn-default" value="Edit" (click)="getData(i.id)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </div>
+            <div class="body_div">
+                <br>
+                <button type="button" class="btn">Next</button> &nbsp;
+                <button type="button" class="btn">supmet</button> &nbsp;
+                <button type="button" class="btn">update</button>
+                <br>
+                <p>Never give out your password. <a href="">Report abuse</a></p>
+            </div>
+            <div class="footer_div">
+                <p>
+                    This content is created by the owner of the form. The data you submit will be sent to the form
+                    owner.
+                    Microsoft is not responsible for the privacy or security practices of its customers, including those
+                    of
+                    this form owner. Never give out your password.
+                    <br><br>
+                    Powered by Microsoft Forms | The owner of this form has not provided a privacy statement as to how
+                    they
+                    will use your response data. Do not provide personal or sensitive information. <br>
+                    | <a href="">Terms of use</a>
+                </p>
+                <br>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,44 @@
+.form_div {
+    height: 100%;
+    background-color: rgba(243, 240, 240, 0.8);
+}
+
+.title_form {
+    height: 154px;
+    background-color: rgb(35, 91, 117, 0.8);
+}
+
+.title {
+    padding-left: 120px;
+    padding-top: 30px;
+    color: white;
+    font-size: 50px;
+}
+
+.body_div {
+    height: 100%;
+    width: 90%;
+    background-color: rgb(230, 238, 242, 0.9);
+    margin-left: 60px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.footer_div {
+    margin-top: 20px;
+    margin-left: 60px;
+}
+
+.btn {
+    background-color: rgba(35, 91, 117, 0.8);
+    color: white;
+    width: 200px;
+    height: 40px;
+    font-size: large;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    background-color: #235b75;
+}
