@@ -17,7 +17,7 @@ import { AdminQuestionFormComponent } from './admin-question-form/admin-question
 import { AddNewQuestionComponent } from './add-new-question/add-new-question.component';
 import { question } from './data/question';
 import { domainsServices } from './services/domainsServices';
-
+import { ReactiveFormsModule } from '@angular/forms'
 const appRoutes:Routes=[
   {path:"",component:SignInComponent},
   {path:"form",component:FormComponent},
@@ -41,6 +41,7 @@ export function tokenGetter() {
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    ReactiveFormsModule ,
     FormsModule,
     JwtModule.forRoot({
       config: {

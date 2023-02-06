@@ -1,74 +1,98 @@
-<form #fQuestion="ngForm">
+<form [formGroup]="form">
     <div class="container">
-        <h2>Add new Question</h2>
-        <br>
-        <div class="form-group">
-            <input type="hidden" ngModel name="txtId">
-            <label class="control-label" for="inputError1">Domain Name</label>
-            <select type="text" class="form-control" id="inputSuccess1" ngModel name="ddl">
-            <option *ngFor="let i of liDomain" [value]="i.id">
-               {{i.domain_Name_EN}}
-            </option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Question Code</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="question_code">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Category Title EN</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="category_title_EN">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Indicator EN</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="Indicator_EN">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">ExplanatoryNotes EN</label>
-            <textarea type="text" class="form-control" id="inputError1" ngModel name="explanatoryNotes_EN">
-            </textarea>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Green EN</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="green_EN">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Yellow EN</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="yellow_EN">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Red EN</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="red_EN">
-        </div>
-        <div class="form-group">
+        <div class="form_div">
+            <div class="title_form">
+            </div>
+            <div class="body_div">
+                <h2>Add new Question.</h2>
+                <br>
+                <div class="form-group" *ngIf="x == 'EN'">
+                    <input type="hidden" name="txtId">
+                    <label class="control-label" for="inputError1">Domain Name</label>
+                    <select type="text" class="form-control" formControlName="domain" id="inputSuccess1" name="ddl">
+                        <option *ngFor="let i of liDomain" [value]="i.id">
+                            {{i.domain_Name_EN}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf="x == 'AR'">
+                    <input type="hidden" name="txtId">
+                    <label class="control-label" for="inputError1">Domain Name</label>
+                    <select type="text" class="form-control" formControlName="domain" id="inputSuccess1" name="ddl">
+                        <option *ngFor="let i of liDomain" [value]="i.id">
+                            {{i.domain_Name_AR}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Question Code</label>
+                    <input type="text" class="form-control" formControlName="questionCode" id="inputError1"
+                        name="question_code">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Category Title EN</label>
+                    <input type="text" class="form-control" formControlName="CatgeoryTitle" id="inputError1"
+                        name="category_title_EN">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Indicator EN</label>
+                    <input type="text" class="form-control" formControlName="IndictorEn" id="inputError1"
+                        name="Indicator_EN">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">ExplanatoryNotes EN</label>
+                    <textarea type="text" class="form-control" formControlName="ExplanatoryNotes" id="inputError1"
+                        name="explanatoryNotes_EN">
+                </textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Green EN</label>
+                    <input type="text" formControlName="GreenEn" class="form-control" id="inputError1" name="green_EN">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Yellow EN</label>
+                    <input type="text" class="form-control" formControlName="YellowEn" id="inputError1"
+                        name="yellow_EN">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Red EN</label>
+                    <input type="text" class="form-control" formControlName="RedEn" id="inputError1" name="red_EN">
+                </div>
+                <div class="form-group">
 
-            <label class="control-label" for="inputError1">Category Title AR</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="category_title_AR">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Indicator AR</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="Indicator_AR">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">ExplanatoryNotes AR</label>
-            <textarea type="text" class="form-control" id="inputError1" ngModel name="ExplanatoryNotes_AR">
-            </textarea>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Green AR</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="green_AR">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Yellow AR</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="yellow_AR">
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="inputError1">Red AR</label>
-            <input type="text" class="form-control" id="inputError1" ngModel name="red_AR">
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" (click)="close()">Close</button>
-            <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+                    <label class="control-label" for="inputError1">Category Title AR</label>
+                    <input type="text" class="form-control" formControlName="CatgeoryTitleAr" id="inputError1"
+                        name="category_title_AR">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Indicator AR</label>
+                    <input type="text" formControlName="IndictorAr" class="form-control" id="inputError1"
+                        name="Indicator_AR">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">ExplanatoryNotes AR</label>
+                    <textarea type="text" class="form-control" formControlName="ExplanatoryNotesAr" id="inputError1"
+                        name="ExplanatoryNotes_AR">
+                </textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Green AR</label>
+                    <input type="text" class="form-control" id="inputError1" formControlName="GreenAr" name="green_AR">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Yellow AR</label>
+                    <input type="text" class="form-control" id="inputError1" formControlName="YellowAr"
+                        name="yellow_AR">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="inputError1">Red AR</label>
+                    <input type="text" class="form-control" id="inputError1" formControlName="RedAr" name="red_AR">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="close()">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+                </div>
+            </div>
         </div>
     </div>
 </form>

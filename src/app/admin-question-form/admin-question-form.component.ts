@@ -83,6 +83,7 @@ export class AdminQuestionFormComponent implements OnInit {
         this.qsn.green_AR = data.green_AR;
         this.qsn.yellow_AR = data.yellow_AR;
         this.qsn.red_AR = data.red_AR;
+        this.qsn.domains_id=data.domains_id;
         console.log(this.qsn);
         this.router.navigate(['/AddNewQuestion'])
       },

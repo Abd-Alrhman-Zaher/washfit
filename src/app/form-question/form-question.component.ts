@@ -20,12 +20,16 @@ export class FormQuestionComponent implements OnInit {
   x!:any;
   userName!:any;
   newArray: any = [];
+  domainList: any[]=[];
   constructor(private questionServices:questionServices,private answerServices:AnswerServices
     ,private categoriesServices:categoriesServices) { }
 
   ngOnInit(): void {
     this.questionServices.loadAll().subscribe({
       next:data => {
+        data.forEach((element: any)=>{
+          this.domainList.push(element.domains_id);
+        })
         this.liquestion = data;
         console.log(data);
         this.x = localStorage.getItem('language');
