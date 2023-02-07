@@ -6,27 +6,13 @@ import {environment} from "../../environments/environment";
 
 @Injectable()
 export class categoriesServices{
+    constructor(private http:HttpClient){}
 
-    httpOptions
-    constructor(private http:HttpClient){
-        let userInfo =window.localStorage.getItem("token") as any;
-
-       this.httpOptions={
-
-          headers:new HttpHeaders({
-
-
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + userInfo,
-          })
-      };
-     }
 
     insert(c:categories):Observable<any>{
-        return this.http.post(environment.serverUrl + "QuestionCategory",c,this.httpOptions)
+        return this.http.post(environment.serverUrl + "QuestionCategory",c)
     }
     loadAll():Observable<any>{
-        return this.http.get(environment.serverUrl + "QuestionCategory",this.httpOptions);
+        return this.http.get(environment.serverUrl + "QuestionCategory");
     }
 }

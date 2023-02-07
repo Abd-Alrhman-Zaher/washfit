@@ -18,12 +18,6 @@ import {ReactiveFormsModule} from '@angular/forms'
 import {AppRoutingModule} from "./app-routing.module";
 import {JwtInterceptor} from "./core/jwt.interceptor";
 
-
-export function tokenGetter() {
-  return localStorage.getItem("jwt");
-}
-
-
 @NgModule({
   declarations: [
     AppComponent,
