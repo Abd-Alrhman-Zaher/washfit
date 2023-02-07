@@ -2,20 +2,21 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { question } from "../data/question";
+import {environment} from "../../environments/environment";
 
 
 
 @Injectable()
 export class questionServices{
-   
+
     httpOptions
     constructor(private http:HttpClient){
         let userInfo =window.localStorage.getItem("token") as any;
-        
+
        this.httpOptions={
-          
+
           headers:new HttpHeaders({
-              
+
 
               'Accept': 'application/json',
               'Content-Type': 'application/json',
@@ -23,7 +24,7 @@ export class questionServices{
           })
       };
      }
-    
+
     insert(e:question):Observable<any>{
         return this.http.post("http://localhost/climateAction/api/Question",e,this.httpOptions)
     }
@@ -40,6 +41,6 @@ export class questionServices{
         return this.http.get("http://localhost/climateAction/api/Question/delete?id="+id,this.httpOptions);
     }
     LoadAllDomians(): Observable<any> {
-        return this.http.get<any>("http://localhost/climateAction/api/Domains/");
+        return this.http.get<any>(environment.serverUrl + "Domains/");
     }
-}    
+}
