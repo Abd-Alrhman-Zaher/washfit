@@ -1,32 +1,18 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { loginModel } from "../data/loginModel";
-
+import {HttpClient} from "@angular/common/http";
+import {Injectable} from "@angular/core";
+import {Observable} from "rxjs";
+import {loginModel} from "../data/loginModel";
+import {environment} from "../../environments/environment";
 
 
 @Injectable()
-export class accountServices{
-    
-    httpOptions
-    constructor(private http:HttpClient){
-        let userInfo =window.localStorage.getItem("token") as any;
-        debugger
-       this.httpOptions={
-          
-          headers:new HttpHeaders({
-              
-
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + userInfo,
-          })
-      };
-     }
+export class accountServices {
 
 
-    login(login:loginModel):Observable<any>{
-        var r = this.http.post("http://localhost/climateAction/api/Account/Login",login,this.httpOptions)
-        return r
-    }
+  constructor(private http: HttpClient) {
+  }
+
+  login(login: loginModel): Observable<any> {
+    return this.http.post(environment.serverUrl + "Account/Login", login)
+  }
 }

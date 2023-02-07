@@ -19,7 +19,7 @@ export class AddNewQuestionComponent implements OnInit {
   x!:any;
   liDomain!: Domains[];
   constructor(private questionServices:questionServices,private domainServices:domainsServices
-     ,_qsn:question,private router:Router, private formBuilder: FormBuilder) { 
+     ,_qsn:question,private router:Router, private formBuilder: FormBuilder) {
     this.qsn = _qsn
   }
   ngOnInit(): void {
@@ -40,25 +40,25 @@ export class AddNewQuestionComponent implements OnInit {
       error: e => console.log(e)
     });
   }
-  
+
 
   FillFormFeilds(data: question) {
 
-      this.form.controls["domain"].setValue(data.domains_id);
+    this.form.controls["domain"].setValue(data.domains_id);
     this.form.controls["questionCode"].setValue(data.question_code);
     this.form.controls["CatgeoryTitle"].setValue(data.category_title_AR);
     this.form.controls["IndictorEn"].setValue(data.indicator_EN);
     this.form.controls["ExplanatoryNotes"].setValue(data.explanatoryNotes_EN);
     this.form.controls["GreenEn"].setValue(data.green_EN);
     this.form.controls["YellowEn"].setValue(data.yellow_EN);
-     this.form.controls["RedEn"].setValue(data.red_EN);
+    this.form.controls["RedEn"].setValue(data.red_EN);
     this.form.controls["CatgeoryTitleAr"].setValue(data.category_title_AR);
     this.form.controls["IndictorAr"].setValue(data.indicator_AR);
     this.form.controls["ExplanatoryNotesAr"].setValue(data.explanatoryNotes_AR);
     this.form.controls["GreenAr"].setValue(data.green_AR);
     this.form.controls["YellowAr"].setValue(data.yellow_AR);
     this.form.controls["RedAr"].setValue(data.red_AR);
-    
+
   }
   LoadForm() {
     this.form = this.formBuilder.group({
@@ -80,10 +80,10 @@ export class AddNewQuestionComponent implements OnInit {
 
 
 
-    }) 
+    })
   }
   onSave(){
-    
+
     var q = new question();
     q.domains_id = this.form.controls["domain"].value;
     q.question_code = this.form.controls["questionCode"].value;
@@ -130,7 +130,7 @@ export class AddNewQuestionComponent implements OnInit {
   //  })
   //  location.reload();
   //}
-  
+
   close(){
     this.router.navigate(['/AdminQuestionForm'])
   }
