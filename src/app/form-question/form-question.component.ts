@@ -13,7 +13,8 @@ import { AnswerServices } from '../services/AnswerServices';
   styleUrls: ['./form-question.component.css']
 })
 export class FormQuestionComponent implements OnInit {
-  liquestion!: question[];
+  liquestion: question[]=[];
+  questionList:any[]=[];
   licategories!: categories[];
   liAnswer!: Answer[];
   @ViewChild('f') Form!: NgForm;
@@ -21,17 +22,25 @@ export class FormQuestionComponent implements OnInit {
   userName!:any;
   newArray: any = [];
   domainList: any[]=[];
+  qategoryNumber:number=0;
   constructor(private questionServices:questionServices,private answerServices:AnswerServices
     ,private categoriesServices:categoriesServices) { }
 
   ngOnInit(): void {
+    this.LoadDomains();
     this.questionServices.loadAll().subscribe({
+      
       next:data => {
         data.forEach((element: any)=>{
           this.domainList.push(element.domains_id);
         })
-        this.liquestion = data;
-        console.log(data);
+        
+        this.questionList=data;
+        this.liquestion=this.questionList.filter((ele:any)=>ele.domains_id ==this.domainList[this.qategoryNumber]);
+        console.log(this.liquestion);
+        
+        // console.log(this.liquestion.find(x=> x.domains_id == this.domainList[0]));
+        
         this.x = localStorage.getItem('language');
       },
       error: e => console.log(e)
@@ -53,6 +62,30 @@ export class FormQuestionComponent implements OnInit {
     })
      this.userName = localStorage.getItem('userName');
      console.log(this.userName);
+  }
+
+  NextQategory() {
+    this.qategoryNumber++;
+    this.liquestion=this.questionList.filter((ele:any)=>ele.domains_id ==this.domainList[this.qategoryNumber]);
+    
+
+  }
+
+  PreviousQategory() {
+    this.qategoryNumber--;
+    this.liquestion=this.questionList.filter((ele:any)=>ele.domains_id ==this.domainList[this.qategoryNumber]);
+
+  }
+  LoadDomains() {
+    this.questionServices.LoadAllDomians().subscribe((result: any)=>{
+      result.forEach((element: any)=>{
+        this.domainList.push(element.id);
+
+      })
+      console.log(this.domainList);
+      
+
+    })
   }
 
   onOptionsSelected(id: number) {
