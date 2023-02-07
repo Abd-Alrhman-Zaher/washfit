@@ -74,9 +74,32 @@
             </div>
             <div class="body_div">
                 <br>
-                <button type="button" class="btn">Next</button> &nbsp;
+                <div class="contianer">
+                    <div class="row">
+                        <div class="col-md-6">
+                <button type="button" class="btn"  (click)="NextQategory()">Next</button> &nbsp;
+
+                        </div>
+                        <div class="col-md-6">
+                <button type="button" class="btn" *ngIf="qategoryNumber" (click)="PreviousQategory()">Previous</button> &nbsp;
+
+                        </div>
+                      
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn" (click)="onChange()">update</button>
+
+                        </div>
+                        <div class="col-md-6">
                 <button type="button" class="btn" (click)="onsubmit()">supmet</button> &nbsp;
-                <button type="button" class="btn" (click)="onChange()">update</button>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
                 <br>
                 <p>Never give out your password. <a href="">Report abuse</a></p>
             </div>

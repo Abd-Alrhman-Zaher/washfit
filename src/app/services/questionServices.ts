@@ -39,4 +39,7 @@ export class questionServices{
     delete(id:number):Observable<any>{
         return this.http.get("http://localhost/climateAction/api/Question/delete?id="+id,this.httpOptions);
     }
+    LoadAllDomians(): Observable<any> {
+        return this.http.get<any>("http://localhost/climateAction/api/Domains/");
+    }
 }    
